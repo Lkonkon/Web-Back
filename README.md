@@ -1,26 +1,28 @@
 Para rodar o projeto será necessário baixar o projeto ou clonar e quando aberto rodar o 2 comandos:
+
 npm install
 npm run dev
-O aplicativo irá dar erro e então será necesário criar a pasta .env manualmente pois fiz o repositório para não baixar o .env. As informações a serem colocadas no .env serão:
-{
-DB_HOST=localhost
-DB_PORT=5434
-DB_USER=postgres
-DB_PASS=gtsnfe2010
-DB_NAME=api_marketplace
 
-PORT=3000
+O aplicativo irá dar erro e em seguida será necessário criar um banco PostgreSql (Versão do PostgrSQL: 16):
 
-JWT_PASS=VQogxYRpvdFUquj0DfaqIIStlw4P81OiefNV
+nome do banco:api_marketplace
+porta:5434
+Senha: gtsnfe2010
 
-EMAIL_USER=brad@sandboxb6bab3df5efc4aa48f94c255e94e6ec6.mailgun.org
-EMAIL_PASS=fd48d87afab8dc108a6ac535e9d855ec-6fafb9bf-8500642d
-}
-Após isso, será necessário criar um banco de dados no PostgreSQL e ajustar o .env de acordo com o banco criado (Senha, Nome e Porta).
+Caso tenha criado com outras informções, alterar no .env do backend.
+Deixado no projeto o arquivo de backup do banco utilizado com o nome "backup.sql", restaurar esse banco para rodar a aplicação.
+Caso não consiga restaurar pelo PGadmin, fazer o processo pelo CMD:
+Pegue o arquivo "backup.sql" e o coloque dentro da pasta bin do Postgres(O caminho normalmemnte é:C:\Program Files\PostgreSQL\16\bin)
+Depois de colocar o arquivo, abra o CMD na pasta bin, e rode o seguinte comando:
 
-Com o banco criado, rodar o seguinte comando:
-npm run migration:run 
-em seguida rodas essas SQLs no banco:
-{
+pg_restore -U postgres -p 5434 -d api_marketplace < backup.sql
 
-}
+O CMD irá pedir a senha do usuário postgres e em seguida será restaurado o banco.
+
+Lembrando que caso o nome do banco e a porta sejam outras, será necessário alterar no camando a ser rodado no CMD;
+
+Em seguida, rodar:
+
+npm run dev
+
+E o aplicativo é para rodar.
