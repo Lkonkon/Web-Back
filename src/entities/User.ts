@@ -14,6 +14,6 @@ export class User {
     @Column({ type: 'text' })
     password: string;
 
-    @Column({ type: 'text' })
+    @Column({ type: 'text' , nullable: true })
     reset_token: string;
 }

@@ -20,7 +20,7 @@ export class Product {
     @Column({ nullable: true })
     imagemproduto: string;
 
-    @Column('decimal', { precision: 10, scale: 2 })
+    @Column('decimal', { precision: 10, scale: 2,  nullable: true })
     valorcompra: number;
 
     @Column({ nullable: true })
